@@ -1,0 +1,59 @@
+{
+  "name": "Chatbot IA (Mock / Teste de Conexão)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "chatbot-receber",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "1",
+      "name": "Receber Mensagem do Site",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        200,
+        300
+      ],
+      "webhookId": "chatbot-app"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "resposta",
+              "value": "🤖 Olá! A conexão com o n8n está funcionando perfeitamente! Para eu ficar inteligente, conecte o nó do OpenAI aqui no n8n no lugar deste nó. Você disse: \"{{ $json.body.mensagem }}\""
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2",
+      "name": "Gerar Resposta Simples",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        460,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Receber Mensagem do Site": {
+      "main": [
+        [
+          {
+            "node": "Gerar Resposta Simples",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

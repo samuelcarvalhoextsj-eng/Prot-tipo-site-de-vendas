@@ -1,0 +1,85 @@
+{
+  "name": "Notificações do Sistema (Protótipo)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "receber-notificacao",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "eb345d35-3c58-45b6-b076-78e5f29910a3",
+      "name": "Receber Dados do Site",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        220,
+        300
+      ],
+      "webhookId": "notificacoes-app"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.tipo }}",
+              "value2": "novo_usuario"
+            }
+          ]
+        }
+      },
+      "id": "f5f5f5f5-f5f5-f5f5-f5f5-f5f5f5f5f5f5",
+      "name": "É Novo Usuário?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        460,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "onboarding@resend.dev",
+        "toEmail": "seu_email_pessoal@exemplo.com",
+        "subject": "Novo Cadastro no Sistema!",
+        "html": "=Olá Administrador!<br><br>Temos uma nova notificação do seu protótipo.<br><br><b>E-mail cadastrado:</b> {{ $json.body.email }}"
+      },
+      "id": "b2b2b2b2-b2b2-b2b2-b2b2-b2b2b2b2b2b2",
+      "name": "Enviar E-mail (Resend)",
+      "type": "n8n-nodes-base.resend",
+      "typeVersion": 1,
+      "position": [
+        700,
+        200
+      ]
+    }
+  ],
+  "connections": {
+    "Receber Dados do Site": {
+      "main": [
+        [
+          {
+            "node": "É Novo Usuário?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "É Novo Usuário?": {
+      "main": [
+        [
+          {
+            "node": "Enviar E-mail (Resend)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
