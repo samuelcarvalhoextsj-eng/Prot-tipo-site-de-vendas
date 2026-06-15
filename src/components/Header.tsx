@@ -36,10 +36,10 @@ export function Header() {
   }, []);
 
   return (
-    <nav className="relative z-50 flex items-center justify-between p-6 lg:px-12">
+    <nav className="relative z-50 flex items-center justify-between p-4 sm:p-6 lg:px-12">
       <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-        <Sparkles className="h-6 w-6 text-primary-500" />
-        <span className="text-xl font-bold tracking-tighter">NEXUS</span>
+        <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 text-primary-500" />
+        <span className="text-lg sm:text-xl font-bold tracking-tighter">NEXUS</span>
       </Link>
       
       <div className="flex items-center gap-4">

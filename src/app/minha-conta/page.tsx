@@ -55,12 +55,12 @@ export default function MinhaConta() {
     <main className="min-h-screen relative z-10">
       <Header />
       
-      <div className="max-w-4xl mx-auto px-6 py-24">
-        <div className="flex items-center justify-between mb-12">
-          <h1 className="text-4xl font-bold">Minha Conta</h1>
+      <div className="max-w-4xl mx-auto px-4 md:px-6 py-12 md:py-24">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold">Minha Conta</h1>
           <button 
             onClick={handleLogout}
-            className="flex items-center gap-2 text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors glass px-4 py-2 rounded-full"
+            className="flex items-center gap-2 text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors glass px-4 py-2 rounded-full w-full md:w-auto justify-center"
           >
             <LogOut className="w-4 h-4" />
             Sair da Conta

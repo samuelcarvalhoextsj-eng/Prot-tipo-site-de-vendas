@@ -31,10 +31,10 @@ export function ProductCatalog() {
   return (
     <section id="catalogo" className="min-h-screen py-24 px-4 lg:px-12 relative z-10">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
           <div>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Descubra</h2>
-            <p className="text-muted-foreground max-w-xl">
+            <p className="text-muted-foreground max-w-xl text-sm md:text-base">
               Nossa curadoria de produtos tecnológicos avançados, projetados para o amanhã.
             </p>
           </div>
